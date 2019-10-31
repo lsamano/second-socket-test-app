@@ -1,5 +1,5 @@
 // Express server
-const express = require('express')
+import express from 'express'
 const app = express()
 
 // For socket.io
@@ -7,7 +7,22 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 
 const PORT = 3000
+server.listen(PORT, () => console.log(`Running on Port ${PORT}`))
 
-app.get('/', (req, res) => res.send("Home"))
+// Allows for serving static files
+app.use(express.static(__dirname + '/'));
 
-app.listen(PORT, () => console.log(`Running on Port ${PORT}`))
+// Routes + Actions
+app.get('/home', (req, res) => res.sendFile(__dirname + '/index.html'))
+
+// On socket.io connection
+io.on('connection', socket => {
+    console.log("Now connnected.");
+    // socket.on('socket_event', callback)
+    
+    socket.on('test_event', payload => {
+        console.log(payload)
+    })
+    
+    socket.on('disconnect', () => console.log("Disconnected."))
+})
