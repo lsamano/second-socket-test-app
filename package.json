@@ -1,0 +1,25 @@
+{
+  "name": "second-socket-test-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsamano/second-socket-test-app.git"
+  },
+  "author": "Leizl Samano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lsamano/second-socket-test-app/issues"
+  },
+  "homepage": "https://github.com/lsamano/second-socket-test-app#readme"
+}
