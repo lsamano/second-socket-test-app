@@ -5,5 +5,5 @@ const form = document.getElementById('text-form')
 form.addEventListener('submit', event => {
     event.preventDefault()
     
-    socket.emit("test_event", "Yo")
+    socket.emit("test_event", form.message.value)
 })
